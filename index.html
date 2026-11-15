@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UBD TOPUP | Free Fire ও PUBG টপ-আপ</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <meta name="description" content="সবচেয়ে কম দামে দ্রুত গেম টপ-আপ। bKash, Nagad, Rocket পেমেন্ট।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <p class="notice">নোটিশ: অভিভাবকের অনুমতি ছাড়া টাকা পাঠিয়ে অর্ডার করলে অর্ডার বাতিল হবে। প্রতিটি অর্ডার যাচাই করে ডেলিভারি দেওয়া হয়।</p>
+
+  <header class="site-header">
+    <a class="brand" href="#top"><img class="logo" src="logo.svg" alt=""><span id="brandName">UBD TOPUP</span></a>
+    <nav class="nav">
+      <a href="#topup">টপ-আপ</a>
+      <a href="#recent">অর্ডার</a>
+      <a href="#contact">যোগাযোগ</a>
+    </nav>
+    <button class="btn small" id="loginBtn" type="button">লগইন</button>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="wrap">
+        <h1>Free Fire ও PUBG টপ-আপ, দ্রুত ও নিরাপদ</h1>
+        <p>UID দিন, পেমেন্ট করুন, কিছুক্ষণেই ডেলিভারি।</p>
+        <div class="hero-games" id="heroGames"></div>
+        <div class="offers">
+          <a class="offer" href="#topup">বোনাস টপ-আপ</a>
+          <a class="offer" href="#topup">মিস্ট্রি বক্স</a>
+          <a class="offer" href="#" id="telegramLink">ফ্রি ডায়মন্ড (টেলিগ্রাম)</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="topup" class="section">
+      <div class="wrap">
+        <h2>গেম টপ-আপ</h2>
+        <div id="categories" class="categories"></div>
+
+        <div id="packagePanel" class="panel" hidden>
+          <h3 id="panelTitle"></h3>
+          <p id="panelNote" class="muted"></p>
+          <div id="packages" class="packages"></div>
+        </div>
+
+        <form id="orderForm" class="panel" hidden novalidate>
+          <h3>অর্ডারের তথ্য</h3>
+          <p class="summary" id="summary"></p>
+
+          <label for="uid">প্লেয়ার UID / ID</label>
+          <input id="uid" inputmode="numeric" autocomplete="off" required>
+
+          <label for="payMethod">পেমেন্ট মাধ্যম</label>
+          <select id="payMethod" required></select>
+          <p class="muted" id="payHint"></p>
+
+          <label for="sender">যে নম্বর থেকে টাকা পাঠিয়েছেন</label>
+          <input id="sender" inputmode="tel" placeholder="01XXXXXXXXX" required>
+
+          <label for="trx">ট্রানজেকশন আইডি (TrxID)</label>
+          <input id="trx" autocomplete="off" required>
+
+          <p id="formMsg" class="form-msg" role="status"></p>
+          <button class="btn" type="submit">অর্ডার করুন</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="recent" class="section alt">
+      <div class="wrap">
+        <h2>সাম্প্রতিক অর্ডার</h2>
+        <ul id="recentList" class="recent"></ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="wrap">
+        <h2>যোগাযোগ</h2>
+        <p>কোনো সমস্যা হলে সরাসরি জানান। সময়: সকাল ৮টা থেকে রাত ১২টা।</p>
+        <p class="links">
+          <a class="btn" id="waLink" href="#">হোয়াটসঅ্যাপ</a>
+          <a class="btn ghost" id="tgLink" href="#">টেলিগ্রাম</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> <span id="footName">UBD TOPUP</span>। সর্বস্বত্ব সংরক্ষিত।</p>
+  </footer>
+
+  <nav class="bottom-nav" aria-label="মোবাইল মেনু">
+    <a href="#top">হোম</a>
+    <a href="#topup">টপ-আপ</a>
+    <a href="#recent">অর্ডার</a>
+    <a href="#contact">সাহায্য</a>
+  </nav>
+
+  <script src="products.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="db.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

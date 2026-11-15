@@ -1,0 +1,150 @@
+:root {
+  --bg: #081330;
+  --bg2: #0e1f48;
+  --card: #14295c;
+  --ink: #f3f0ff;
+  --muted: #9db4e6;
+  --line: #274590;
+  --accent: #3d9bff;
+  --accent-ink: #03102a;
+  --ok: #3ddc84;
+  --err: #ff6b6b;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+
+body {
+  font-family: "Hind Siliguri", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--bg);
+  padding-bottom: 4.5rem;
+}
+
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.wrap { width: min(100% - 2rem, 60rem); margin-inline: auto; }
+.muted { color: var(--muted); font-size: .95rem; }
+
+.notice {
+  background: var(--accent); color: var(--accent-ink);
+  font-size: .9rem; font-weight: 500; text-align: center; padding: .4rem 1rem;
+}
+
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: .7rem 1rem; background: var(--bg2); border-bottom: 1px solid var(--line);
+}
+.brand { font-weight: 700; font-size: 1.3rem; color: var(--ink); text-decoration: none; margin-right: auto; }
+.nav { display: flex; gap: 1.25rem; }
+.nav a { color: var(--ink); text-decoration: none; font-weight: 500; }
+.nav a:hover { color: var(--accent); }
+
+.btn {
+  display: inline-block; cursor: pointer; border: 0; border-radius: var(--radius);
+  background: var(--accent); color: var(--accent-ink);
+  font: inherit; font-weight: 700; padding: .65rem 1.5rem; text-decoration: none;
+}
+.btn:hover { filter: brightness(1.1); }
+.btn.small { padding: .3rem 1rem; }
+.btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--line); }
+
+.hero { padding: clamp(3rem, 9vw, 6rem) 0; background: linear-gradient(160deg, var(--bg2), var(--bg)); }
+.hero h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.3; max-width: 16em; }
+.hero p { color: var(--muted); margin: .75rem 0 1.5rem; font-size: 1.15rem; }
+.offers { display: flex; flex-wrap: wrap; gap: .75rem; }
+.offer {
+  border: 2px solid var(--accent); color: var(--ink); text-decoration: none;
+  padding: .35rem 1.1rem; border-radius: 99px; font-weight: 500;
+}
+.offer:hover { background: var(--accent); color: var(--accent-ink); }
+
+.section { padding: clamp(2.5rem, 7vw, 4.5rem) 0; }
+.section.alt { background: var(--bg2); }
+h2 { font-size: 1.6rem; margin-bottom: 1.25rem; }
+h3 { font-size: 1.2rem; margin-bottom: .25rem; }
+
+.categories { display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); gap: 1rem; }
+.cat {
+  background: var(--card); color: var(--ink); border: 2px solid var(--line);
+  border-radius: var(--radius); padding: 1.4rem 1rem; font: inherit; font-weight: 600;
+  cursor: pointer; text-align: center;
+}
+.cat:hover { border-color: var(--accent); }
+.cat[aria-pressed="true"] { border-color: var(--accent); background: var(--bg2); }
+
+.panel { margin-top: 1.5rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; }
+.packages { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: .8rem; margin-top: 1rem; }
+.pkg {
+  background: var(--bg); color: var(--ink); border: 2px solid var(--line); border-radius: var(--radius);
+  padding: .8rem .6rem; font: inherit; cursor: pointer; text-align: center;
+}
+.pkg:hover { border-color: var(--accent); }
+.pkg[aria-pressed="true"] { border-color: var(--accent); background: var(--bg2); }
+.pkg strong { display: block; }
+.pkg span { color: var(--accent); font-weight: 700; }
+
+.summary { font-weight: 600; margin: .5rem 0 0; color: var(--accent); }
+label { display: block; margin: 1rem 0 .25rem; font-weight: 500; }
+input, select {
+  width: 100%; font: inherit; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: var(--radius); padding: .6rem .8rem;
+}
+.invalid { border-color: var(--err); }
+.form-msg { min-height: 1.7rem; margin: .8rem 0; font-weight: 500; }
+.form-msg.error { color: var(--err); }
+.form-msg.ok { color: var(--ok); }
+
+.recent { list-style: none; display: grid; gap: .6rem; }
+.recent li {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: .7rem 1rem;
+}
+.status { font-weight: 600; color: var(--accent); }
+.status.done { color: var(--ok); }
+
+.links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+
+.site-footer { text-align: center; color: var(--muted); padding: 1.5rem 1rem; border-top: 1px solid var(--line); }
+
+.bottom-nav {
+  display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  background: var(--bg2); border-top: 1px solid var(--line);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+.bottom-nav a { flex: 1; text-align: center; padding: .7rem 0; color: var(--ink); text-decoration: none; font-weight: 500; font-size: .95rem; }
+
+@media (max-width: 720px) {
+  .nav { display: none; }
+  .bottom-nav { display: flex; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+
+.icon { display: inline-block; flex: none; }
+.icon svg, .icon img { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 10px; }
+.icon-lg { width: 3.5rem; height: 3.5rem; }
+.icon-md { width: 2.5rem; height: 2.5rem; }
+.icon-sm { width: 1.75rem; height: 1.75rem; }
+
+.cat { display: flex; flex-direction: column; align-items: center; gap: .6rem; }
+.pkg { display: flex; flex-direction: column; align-items: center; gap: .25rem; }
+
+.hero-games { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1.25rem; }
+.game-chip {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: var(--card); border: 1px solid var(--line); border-radius: 99px;
+  padding: .3rem 1rem .3rem .4rem; font-weight: 600;
+}
+.game-chip .icon-md { width: 2.2rem; height: 2.2rem; }
+
+.brand { display: inline-flex; align-items: center; gap: .6rem; letter-spacing: .02em; }
+.logo { width: 2.2rem; height: 2.2rem; display: block; }
