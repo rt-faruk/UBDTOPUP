@@ -1,0 +1,35 @@
+.admin-wrap { padding: 1.5rem 0 3rem; }
+.login { max-width: 26rem; margin: 2rem auto; }
+.login h2 { margin-bottom: .5rem; }
+
+.toolbar { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: space-between; align-items: center; }
+.tabs { display: flex; flex-wrap: wrap; gap: .5rem; }
+.tabs button {
+  background: var(--card); color: var(--ink); border: 2px solid var(--line); border-radius: 99px;
+  font: inherit; font-weight: 500; padding: .3rem 1rem; cursor: pointer;
+}
+.tabs button[aria-pressed="true"] { border-color: var(--accent); background: var(--bg2); }
+.tabs span { color: var(--accent); font-weight: 700; margin-left: .25rem; }
+
+.orders { list-style: none; display: grid; gap: .9rem; margin-top: 1rem; }
+.order {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem;
+  display: grid; gap: .6rem;
+}
+.order-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
+.order-top strong { font-size: 1.1rem; }
+.badge { font-weight: 700; font-size: .9rem; padding: .1rem .7rem; border-radius: 99px; border: 1px solid var(--accent); color: var(--accent); }
+.badge.Done { color: var(--ok); border-color: var(--ok); }
+.badge.Cancelled { color: var(--err); border-color: var(--err); }
+
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .4rem 1.5rem; }
+.field { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.field small { color: var(--muted); }
+.field code { font-family: ui-monospace, Consolas, monospace; background: var(--bg); padding: .1rem .5rem; border-radius: 6px; word-break: break-all; }
+.copy { background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 6px; font: inherit; font-size: .85rem; padding: 0 .5rem; cursor: pointer; }
+.copy:hover { border-color: var(--accent); }
+
+.actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .25rem; }
+.btn.ok { background: var(--ok); }
+.btn.bad { background: transparent; color: var(--err); border: 2px solid var(--err); }
+.btn.small[disabled] { opacity: .5; cursor: wait; }

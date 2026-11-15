@@ -1,0 +1,36 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Admin: Firebase Authentication e admin account baniye tar UID ekhane boshan
+    function isAdmin() {
+      return request.auth != null && request.auth.uid in ['eOaYRvFfxCfGqLDA9lmUGj0Pltv1'];
+    }
+
+    function validOrder() {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['category','package','price','uid','payMethod','sender','trx','status','createdAt'])
+        && d.status == 'Pending'
+        && d.createdAt == request.time
+        && d.price is number && d.price > 0 && d.price < 100000
+        && d.uid is string && d.uid.size() >= 6 && d.uid.size() <= 15
+        && d.sender is string && d.sender.size() == 11
+        && d.trx is string && d.trx.size() >= 4 && d.trx.size() <= 30
+        && d.category is string && d.category.size() < 60
+        && d.package is string && d.package.size() < 60
+        && d.payMethod in ['bKash','Nagad','Rocket'];
+    }
+
+    // Shob order: keu notun order dite pare, kintu porte/bodlate pare shudhu admin
+    match /orders/{id} {
+      allow create: if validOrder();
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Home page er "Recent Orders": shobai dekhte pare, likhte pare shudhu admin
+    match /public_orders/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}
